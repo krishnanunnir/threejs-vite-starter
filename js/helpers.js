@@ -1,4 +1,5 @@
 // helpers.js - Utility functions for the Three.js application
+import * as THREE from 'three';
 
 // Create and add lights to the scene
 export function createLights(scene) {

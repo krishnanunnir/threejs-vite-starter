@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { scene, camera, renderer, cube } = setupScene(container);
     
     // Setup controls
-    setupControls(camera, renderer);
+    const controls = setupControls(camera, renderer);
     
     // Handle window resize
     window.addEventListener('resize', () => {
@@ -20,6 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
     
+    // Modified animation loop to update controls
+    function animationLoop() {
+        requestAnimationFrame(animationLoop);
+        
+        // Update orbit controls
+        if (controls && controls.update) {
+            controls.update();
+        }
+        
+        // Rotate the cube
+        cube.rotation.x += 0.005;
+        cube.rotation.y += 0.01;
+        
+        // Render the scene
+        renderer.render(scene, camera);
+    }
+    
     // Start the animation loop
-    animate(scene, camera, renderer, cube);
+    animationLoop();
 }); 

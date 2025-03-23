@@ -1,25 +1,25 @@
 // controls.js - Handles camera controls and interactions
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
 export function setupControls(camera, renderer) {
-    // This is a placeholder for camera controls
-    // In a real project, you might use OrbitControls or other control systems
+    // Set up OrbitControls for interactive camera manipulation
+    const controls = new OrbitControls(camera, renderer.domElement);
     
-    // Example: setting up mouse movement to slightly move the camera
-    document.addEventListener('mousemove', (event) => {
-        // Get normalized mouse position (-1 to 1)
-        const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-        const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        
-        // Subtly move camera based on mouse position
-        camera.position.x = mouseX * 0.3;
-        camera.position.y = mouseY * 0.3;
-        
-        // Always look at the center of the scene
-        camera.lookAt(0, 0, 0);
-    });
+    // Configure controls
+    controls.enableDamping = true; // Add smooth damping effect
+    controls.dampingFactor = 0.05;
+    controls.screenSpacePanning = false;
     
-    // If using OrbitControls, you would add:
-    // const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // return controls;
+    // Set minimum and maximum distance
+    controls.minDistance = 1;
+    controls.maxDistance = 10;
     
-    return null; // No controls object to return for now
+    // Optional: limit vertical rotation
+    controls.minPolarAngle = Math.PI / 6; // 30 degrees
+    controls.maxPolarAngle = Math.PI / 2;  // 90 degrees
+    
+    return controls;
+    
+    // The original mouse move controls are removed in favor of OrbitControls
 } 

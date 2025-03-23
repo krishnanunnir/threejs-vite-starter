@@ -1,4 +1,5 @@
 // scene.js - Handles scene setup and animation
+import * as THREE from 'three';
 import { createLights } from './helpers.js';
 
 // Set up the Three.js scene, camera, and renderer

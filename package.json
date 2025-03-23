@@ -1,4 +1,12 @@
 {
+  "name": "threejs-vite-project",
+  "version": "1.0.0",
+  "description": "A minimalist Three.js development environment with Vite",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "three": "^0.174.0"
   },

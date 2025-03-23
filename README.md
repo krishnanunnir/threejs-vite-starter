@@ -1,10 +1,31 @@
-npm install --save three
-npm install --save-dev vite # For development                                                                           1 ✘  abnormal Py  at 21:41:17 
-npx vite
+# Three.js Development Setup with Vite
 
-# Simple Three.js Development Setup
+A minimalist Three.js development environment for quick experimentation and prototyping, powered by Vite for fast development and building.
 
-A minimalist Three.js development environment for quick experimentation and prototyping.
+## Installation
+
+1. **Clone or download this repository**
+
+2. **Install dependencies**
+   ```bash
+   # Install all dependencies (both production and development)
+   npm install
+   
+   # Or install them separately
+   npm install three
+   npm install --save-dev vite
+   ```
+
+3. **Start the development server**
+   ```bash
+   # Start Vite's dev server with hot module replacement
+   npx vite
+   # Or if you have scripts set up in package.json
+   npm run dev
+   ```
+
+4. **Open your browser**
+   - The development server typically runs at http://localhost:5173
 
 ## Project Structure
 
@@ -16,16 +37,52 @@ project/
 │   ├── scene.js       # Scene setup and objects
 │   ├── controls.js    # Camera/interaction controls
 │   └── helpers.js     # Utility functions
+├── package.json       # Project dependencies and scripts
+└── node_modules/      # Installed packages (generated)
 ```
 
-## How to Run
+## Development with Vite
 
-1. Start a local server in the project directory
-   - Using VS Code: Install "Live Server" extension and click "Go Live"
-   - Using Python: Run `python -m http.server` 
-   - Using Node.js: Run `npx serve`
+Vite provides several advantages for Three.js development:
+- Lightning-fast hot module replacement
+- ES module support out of the box
+- Optimized builds for production
+- Smart module pre-bundling
 
-2. Open the local URL in your browser (typically http://localhost:5500 or http://localhost:8000)
+### Recommended Workflow
+
+1. **Development**: 
+   ```bash
+   npx vite
+   ```
+   - Make changes to your files and see them instantly in the browser
+
+2. **Building for production**:
+   ```bash
+   npx vite build
+   ```
+   - Creates optimized files in the `dist` directory
+   
+3. **Preview production build**:
+   ```bash
+   npx vite preview
+   ```
+   - Serves the production build locally for testing
+
+## Customizing the Build
+
+You can create a `vite.config.js` file in the project root for custom configuration:
+
+```javascript
+// vite.config.js
+export default {
+  // Custom settings here
+  base: './',  // For relative paths in production
+  build: {
+    outDir: 'dist'
+  }
+}
+```
 
 ## Extending the Project
 
@@ -39,3 +96,4 @@ To add new features:
 
 - [Three.js Documentation](https://threejs.org/docs/)
 - [Three.js Examples](https://threejs.org/examples/)
+- [Vite Documentation](https://vitejs.dev/guide/)
