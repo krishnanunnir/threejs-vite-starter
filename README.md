@@ -1,99 +1,87 @@
-# Three.js Development Setup with Vite
+# Tank Alien Shooter Game
 
-A minimalist Three.js development environment for quick experimentation and prototyping, powered by Vite for fast development and building.
+A 3D space shooter game built with Three.js and Vite where you control a tank to shoot down alien invaders.
 
-## Installation
+## Description
 
-1. **Clone or download this repository**
+In this game, you control a tank at the bottom of the screen that can move left and right. Aliens appear at the top and move downward. Your goal is to shoot them down before they reach you.
 
-2. **Install dependencies**
-   ```bash
-   # Install all dependencies (both production and development)
-   npm install
-   
-   # Or install them separately
-   npm install three
-   npm install --save-dev vite
-   ```
+## Features
 
-3. **Start the development server**
-   ```bash
-   # Start Vite's dev server with hot module replacement
-   npx vite
-   # Or if you have scripts set up in package.json
-   npm run dev
-   ```
+- 3D graphics with Three.js
+- Mouse-controlled tank movement
+- Shooting mechanics
+- Collision detection
+- Score tracking
+- Increasing difficulty
+- Multiple alien types
 
-4. **Open your browser**
-   - The development server typically runs at http://localhost:5173
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository or download the source code
+2. Navigate to the project directory
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+### Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+### Building for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Game Controls
+
+- **Move Tank**: Move your mouse left and right
+- **Fire**: Left-click to shoot
 
 ## Project Structure
 
-```
-project/
-├── index.html         # Main HTML file with basic setup
-├── js/
-│   ├── main.js        # Entry point and core setup
-│   ├── scene.js       # Scene setup and objects
-│   ├── controls.js    # Camera/interaction controls
-│   └── helpers.js     # Utility functions
-├── package.json       # Project dependencies and scripts
-└── node_modules/      # Installed packages (generated)
-```
+- `src/` - Source code
+  - `game.js` - Main game class
+  - `components/` - Game components (tank, aliens, bullets)
+  - `utils/` - Utility functions
+  - `assets/` - Game assets (textures, models, sounds)
+- `js/` - JavaScript entry point
+- `index.html` - Main HTML file
 
-## Development with Vite
+## Implementation Plan
 
-Vite provides several advantages for Three.js development:
-- Lightning-fast hot module replacement
-- ES module support out of the box
-- Optimized builds for production
-- Smart module pre-bundling
+The game is being developed in phases:
 
-### Recommended Workflow
+1. Project Setup and Environment
+2. Core Game Elements
+3. Game Mechanics
+4. Enhanced Gameplay
+5. Audiovisual Enhancement
+6. Polish and Optimization
+7. Deployment
 
-1. **Development**: 
-   ```bash
-   npx vite
-   ```
-   - Make changes to your files and see them instantly in the browser
+## License
 
-2. **Building for production**:
-   ```bash
-   npx vite build
-   ```
-   - Creates optimized files in the `dist` directory
-   
-3. **Preview production build**:
-   ```bash
-   npx vite preview
-   ```
-   - Serves the production build locally for testing
-
-## Customizing the Build
-
-You can create a `vite.config.js` file in the project root for custom configuration:
-
-```javascript
-// vite.config.js
-export default {
-  // Custom settings here
-  base: './',  // For relative paths in production
-  build: {
-    outDir: 'dist'
-  }
-}
-```
-
-## Extending the Project
-
-To add new features:
-- Create new geometry in `scene.js`
-- Add new controls in `controls.js`
-- Add utility functions in `helpers.js`
-- Import and use external libraries as needed
-
-## Additional Resources
-
-- [Three.js Documentation](https://threejs.org/docs/)
-- [Three.js Examples](https://threejs.org/examples/)
-- [Vite Documentation](https://vitejs.dev/guide/)
+MIT
