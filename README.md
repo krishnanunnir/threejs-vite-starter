@@ -39,3 +39,13 @@ To add new features:
 
 - [Three.js Documentation](https://threejs.org/docs/)
 - [Three.js Examples](https://threejs.org/examples/)
+
+
+
+How I made this
+
+Make it incremetally
+
+1. Create a ball falling on surface
+2. Make everuthing 2d
+3. Make the platform rectangular and white

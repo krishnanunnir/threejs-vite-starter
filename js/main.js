@@ -8,18 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('scene-container');
     
     // Setup the scene and get required objects
-    const { scene, camera, renderer, cube } = setupScene(container);
+    const { scene, camera, renderer, ball, platform, physics, brickGrid, gameState, effects } = setupScene(container);
     
-    // Setup controls
-    setupControls(camera, renderer);
+    // Setup controls and get key state
+    const { keyState, mouse } = setupControls(camera, renderer);
     
     // Handle window resize
     window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
+        const aspectRatio = window.innerWidth / window.innerHeight;
+        const cameraSize = 5;
+        
+        // Update orthographic camera for 2D view
+        camera.left = -cameraSize * aspectRatio;
+        camera.right = cameraSize * aspectRatio;
+        camera.top = cameraSize;
+        camera.bottom = -cameraSize;
+        
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
     
     // Start the animation loop
-    animate(scene, camera, renderer, cube);
+    animate(scene, camera, renderer, ball, platform, physics, keyState, mouse, brickGrid, gameState, effects);
 }); 
